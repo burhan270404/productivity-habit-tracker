@@ -32,6 +32,13 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Habit Tracker to use your location for live tracking.",
+          "locationWhenInUsePermission": "Allow Habit Tracker to access your location while the app is open."
+        }
       ]
     ],
     "experiments": {
