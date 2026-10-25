@@ -1,20 +1,20 @@
-import React, { useState, useCallback } from 'react';
+import { AddHabitDialog } from '@/components/AddHabitDialog';
+import { HabitCard } from '@/components/HabitCard';
+import { StorageService } from '@/services/storage';
+import { Habit } from '@/types';
+import { useFocusEffect } from 'expo-router';
+import { Plus, Sparkles } from 'lucide-react-native';
+import { useCallback, useState } from 'react';
 import {
   FlatList,
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
   Modal,
   StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import { useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Habit } from '@/types';
-import { StorageService } from '@/services/storage';
-import { HabitCard } from '@/components/HabitCard';
-import { AddHabitDialog } from '@/components/AddHabitDialog';
-import { Plus, Sparkles } from 'lucide-react-native';
 
 // ─── time-aware content ────────────────────────────────────────────────────
 const hour = new Date().getHours();

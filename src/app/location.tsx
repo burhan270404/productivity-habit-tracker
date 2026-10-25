@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { LocationEntry } from '@/types';
+import * as Location from 'expo-location';
+import { Gauge, MapPin, Mountain, Navigation, Radio, Wifi, WifiOff } from 'lucide-react-native';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
   Linking,
+  ScrollView,
   StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import * as Location from 'expo-location';
-import { LocationEntry } from '@/types';
-import { MapPin, Navigation, Gauge, Mountain, Radio, Wifi, WifiOff } from 'lucide-react-native';
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 
@@ -209,7 +209,6 @@ export default function LocationScreen() {
   const [current, setCurrent] = useState<LocationEntry | null>(null);
   const [log, setLog] = useState<LocationEntry[]>([]);
   const subRef = useRef<Location.LocationSubscription | null>(null);
-  const insets = useSafeAreaInsets();
   const insets = useSafeAreaInsets();
 
   // Check existing permission on mount

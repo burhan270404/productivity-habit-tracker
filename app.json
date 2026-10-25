@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "productivity-habit-tracker",
-    "slug": "productivity-habit-tracker",
+    "name": "HabitPulse",
+    "slug": "HabitPulse",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "productivityhabittracker",
+    "scheme": "HabitPulse",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"

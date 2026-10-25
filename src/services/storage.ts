@@ -1,5 +1,5 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Habit, Task, UserStats } from '@/types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const HABITS_KEY = '@habits_storage';
 const TASKS_KEY = '@tasks_storage';
@@ -69,15 +69,25 @@ export const StorageService = {
     const habits = await this.getHabits();
     const updated = habits.map(h => {
       if (h.id === id) {
-        const isDone = h.completedDates.includes(dateStr);
-        const newDates = isDone
-          ? h.completedDates.filter(d => d !== dateStr)
-          : [...h.completedDates, dateStr];
+        const isAlreadyDone = h.completedDates.includes(dateStr);
+        
+        let newDates: string[];
+        let newStreak = h.streak;
+
+        if (isAlreadyDone) {
+          // If it was already done on this date, uncheck it and decrease streak safely
+          newDates = h.completedDates.filter(d => d !== dateStr);
+          newStreak = Math.max(0, h.streak - 1);
+        } else {
+          // If it wasn't done, mark it done and increase streak
+          newDates = [...h.completedDates, dateStr];
+          newStreak = h.streak + 1;
+        }
 
         return {
           ...h,
           completedDates: newDates,
-          streak: isDone ? Math.max(0, h.streak - 1) : h.streak + 1,
+          streak: newStreak,
         };
       }
       return h;

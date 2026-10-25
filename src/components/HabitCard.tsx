@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { Habit } from '@/types';
 import { Check, Flame, Trash2 } from 'lucide-react-native';
+import React from 'react';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 interface HabitCardProps {
   habit: Habit;
